@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LiteDB.Shell</RootNamespace>
     <AssemblyName>LiteDB.Shell</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,16 +47,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiteDB090">
-      <HintPath>Resources\LiteDB090.dll</HintPath>
-      <Aliases>v090</Aliases>
-    </Reference>
-    <Reference Include="LiteDB104">
-      <HintPath>Resources\LiteDB104.dll</HintPath>
-      <Aliases>v104</Aliases>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -70,8 +64,8 @@
     <Compile Include="Commands\Run.cs" />
     <Compile Include="Commands\Ed.cs" />
     <Compile Include="Engines\ShellEngine_200.cs" />
-    <Compile Include="Engines\ShellEngine_104.cs" />
-    <Compile Include="Engines\ShellEngine_090.cs" />
+    <None Include="Engines\ShellEngine_104.cs" />
+    <None Include="Engines\ShellEngine_090.cs" />
     <Compile Include="Engines\IShellEngine.cs" />
     <Compile Include="Shell\ConsoleCommand.cs" />
     <Compile Include="Commands\Close.cs" />
