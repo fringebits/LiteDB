@@ -27,5 +27,18 @@ namespace LiteDB
             _visitor = new QueryVisitor<T>(mapper);
             _includes = new List<Action<BsonDocument>>();
         }
+
+        public void InsertOrUpdate(T value)
+        {
+            var doc = this._mapper.ToDocument<T>(value);
+            if (this.Exists(Query.EQ("_id", doc["_id"])))
+            {
+                this.Update(value);
+            }
+            else
+            {
+                this.Insert(value);
+            }
+        }
     }
 }
